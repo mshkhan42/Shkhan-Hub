@@ -1,0 +1,447 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary: #6c5ce7;
+    --secondary: #a29bfe;
+    --accent: #fd79a8;
+    --dark: #2d3436;
+    --light: #f5f6fa;
+    --gray: #dfe6e9;
+    --success: #00b894;
+}
+
+/* Body */
+body {
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-top: 80px; /* header ki height jitni space */
+}
+
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 15px 0;
+    position: fixed;   /* yeh header ko lock karega */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    transition: all 0.3s ease;
+}
+
+.logo h1 {
+    font-size: 26px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* Shrink Header on Scroll */
+header.shrink {
+    height: 60px;
+}
+
+header.shrink .logo img {
+    width: 40px;
+    height: 40px;
+}
+
+header.shrink .logo h1 {
+    font-size: 20px;
+}
+
+
+/* Header Content */
+.header-content {
+    display: flex;
+    justify-content: center; /* center me logo + text */
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+}
+
+/* Logo Image */
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* gol logo */
+    object-fit: cover;
+}
+
+/* Logo Text */
+.header-content h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* round logo */
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.logo h1 {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+        url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1170&q=80');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    animation: fadeInDown 1s ease;
+}
+
+.hero-content p {
+    font-size: 20px;
+    animation: fadeInUp 1s ease;
+}
+
+/* Section Titles */
+section {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+/* Posts Grid */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.post-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.post-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.post-card:hover .post-image img {
+    transform: scale(1.1);
+}
+
+.post-content {
+    padding: 18px;
+}
+
+.post-date {
+    color: var(--primary);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.post-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.post-excerpt {
+  color: #666;
+  margin-bottom: 15px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+.read-more {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.read-more:hover {
+    color: var(--accent);
+    transform: translateX(5px);
+}
+
+/* Post Details */
+.post-details {
+    padding: 60px 0;
+}
+
+.post-details-content {
+    background: white;
+    border-radius: 40px;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.post-details-image {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.post-details-title {
+    font-size: 36px;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.post-details-meta {
+    color: #777;
+    margin-bottom: 30px;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.post-details-category {
+    background: var(--primary);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.post-details-body {
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.post-details-body p {
+    margin-bottom: 20px;
+}
+
+.post-details-body h2, 
+.post-details-body h3 {
+    margin: 30px 0 15px;
+    color: var(--primary);
+}
+
+/* Back Button */
+.back-to-home {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--primary);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: var(--secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(108, 92, 231, 0.3);
+}
+
+/* Contact Buttons */
+.contact-buttons {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 99;
+}
+
+.contact-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.contact-btn:hover {
+    transform: translateY(-5px);
+}
+
+.fb-btn { background: #3b5998; }
+.wa-btn { background: #25d366; }
+
+/* Animations */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .logo h1 { font-size: 24px; }
+    .logo img { width: 50px; height: 50px; }
+    .hero { height: 300px; }
+    .hero-content h2 { font-size: 28px; }
+    .hero-content p { font-size: 16px; }
+    .posts-grid { grid-template-columns: 1fr; }
+    .post-details-content { padding: 20px; }
+    .post-details-image { height: 250px; }
+    .post-details-title { font-size: 28px; }
+    .post-details-body { font-size: 16px; }
+}
+
+@media (max-width: 480px) {
+    .logo h1 { font-size: 20px; }
+    .logo img { width: 45px; height: 45px; }
+    .hero { height: 250px; }
+    .hero-content h2 { font-size: 22px; }
+    .hero-content p { font-size: 14px; }
+    .section-title { font-size: 24px; }
+    .post-details-image { height: 200px; }
+    .post-details-title { font-size: 22px; }
+    .contact-buttons { bottom: 15px; left: 15px; }
+    .contact-btn { width: 40px; height: 40px; font-size: 16px; }
+}
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 40px 20px 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-logo h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.footer-contact p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+}
+
+.footer-social a {
+    color: white;
+    margin-right: 15px;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: var(--primary);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 15px;
+    font-size: 0.85rem;
+}
